@@ -13,7 +13,9 @@ global.__middlewares = __dirname + "/middlewares";
 
 
 // routers
-//const userRouter = require("./modules/user/router");
+const userRouter = require("./modules/user/router");
+const adminRouter = require("./modules/admin/router");
+
 
 const app = express();
 app.enable('trust proxy');
@@ -46,7 +48,9 @@ app.get('/', (req, res) => {
     })
   })
   
-//app.use("/api/user", userRouter);
+app.use("/api/user", userRouter);
+app.use("/api/admin", adminRouter);
+
 
 app.use(handleResponse);
 module.exports = app;
