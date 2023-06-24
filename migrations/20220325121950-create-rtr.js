@@ -1,14 +1,23 @@
 'use strict';
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('users', {
-      user_id: {
+    await queryInterface.createTable('rtrs', {
+      rtr_id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name_of_business: {
+      user_id: {
+        type: Sequelize.INTEGER
+      },
+      from_date: {
+        type: Sequelize.DATE
+      },
+      to_date: {
+        type: Sequelize.DATE
+      },
+      company_name: {
         type: Sequelize.STRING(400)
       },
       address: {
@@ -35,26 +44,74 @@ module.exports = {
       email_id: {
         type: Sequelize.STRING(300)
       },
-      password: {
-        type: Sequelize.STRING(200)
+      created_at: {
+        type: Sequelize.DATE
       },
-      otp: {
-        type: Sequelize.STRING(45)
+      pmp_opening_stock: {
+        type: Sequelize.DOUBLE
+      },
+      pmp_purchases: {
+        type: Sequelize.DOUBLE
+      },
+      pmp_sales: {
+        type: Sequelize.DOUBLE
+      },
+      pmp_rate: {
+        type: Sequelize.DOUBLE
+      },
+      pmp_levy: {
+        type: Sequelize.DOUBLE
+      },
+      pmp_closing_stock: {
+        type: Sequelize.DOUBLE
+      },
+      mmp_opening_stock: {
+        type: Sequelize.DOUBLE
+      },
+      mmp_purchases: {
+        type: Sequelize.DOUBLE
+      },
+      mmp_sales: {
+        type: Sequelize.DOUBLE
+      },
+      mmp_rate: {
+        type: Sequelize.DOUBLE
+      },
+      mmp_levy: {
+        type: Sequelize.DOUBLE
+      },
+      mmp_closing_stock: {
+        type: Sequelize.DOUBLE
+      },
+      refuse_bags_opening_stock: {
+        type: Sequelize.DOUBLE
+      },
+      refuse_bags_purchases: {
+        type: Sequelize.DOUBLE
+      },
+      refuse_bags_sales: {
+        type: Sequelize.DOUBLE
+      },
+      refuse_bags_rate: {
+        type: Sequelize.DOUBLE
+      },
+      refuse_bags_levy: {
+        type: Sequelize.DOUBLE
+      },
+      refuse_bags_closing_stock: {
+        type: Sequelize.DOUBLE
+      },
+      total_levy_payable: {
+        type: Sequelize.DOUBLE
+      },
+      admin_comments: {
+        type: Sequelize.STRING(300)
       },
       approval_status: {
         type: Sequelize.INTEGER
       },
       del_status: {
         type: Sequelize.INTEGER
-      },
-      user_type: {
-        type: Sequelize.INTEGER
-      },
-      token: {
-        type: Sequelize.STRING(200)
-      },
-      created_at: {
-        type: Sequelize.DATE
       },
       createdAt: {
         type: Sequelize.DATE
@@ -65,23 +122,8 @@ module.exports = {
     }, {
       timestamps: false
     })
-      .then(() => {
-        queryInterface.bulkInsert("users", [
-          {
-            name_of_business: "EEA Admin",
-            first_name: "EEA Admin",
-            designation: "System Admin",
-            cell_phone_number: "123456789",
-            email_id: "eeaadmin",
-            password: "$2b$10$c1b28Wf5S3suemCUovCuTenWNXojzNO0/UJ5x.qFfscrpXSsT0oKi",
-            del_status: 1,
-            user_type: 1,
-            approval_status:1
-          }
-        ]);
-      });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Users');
+    await queryInterface.dropTable('rtrs');
   }
 };

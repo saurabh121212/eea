@@ -3,7 +3,8 @@ User Status
 2 = Shops
 
 
-User Aprovel Status
+RTR Aprovel Status
 1 = pendding 
 2 = Aproved
 3 = Rejected (if rejected then delete the records)
+

@@ -1,9 +1,9 @@
 {
   "development": {
     "username": "root",
-    "password": "Saurabh@123",
+    "password": "123456789",
     "database": "eea_db",
-    "host": "127.0.0.1",
+    "host": "eea.crjqc2lbhymg.eu-north-1.rds.amazonaws.com",
     "dialect": "mysql",
     "port":3306,
     "logging": false

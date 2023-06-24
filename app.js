@@ -15,6 +15,8 @@ global.__middlewares = __dirname + "/middlewares";
 // routers
 const userRouter = require("./modules/user/router");
 const adminRouter = require("./modules/admin/router");
+const rtrRouter = require("./modules/rtr/router");
+
 
 
 const app = express();
@@ -50,6 +52,8 @@ app.get('/', (req, res) => {
   
 app.use("/api/user", userRouter);
 app.use("/api/admin", adminRouter);
+app.use("/api/rtr", rtrRouter);
+
 
 
 app.use(handleResponse);
