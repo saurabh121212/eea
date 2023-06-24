@@ -2,6 +2,7 @@ const { user } = require('../../models');
 const { Op, Sequelize } = require("sequelize");
 
 
+
 module.exports = {
     ragister,
     updateToken,

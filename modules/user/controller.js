@@ -1,6 +1,8 @@
 const User = require("./DAO");
 const { generateJWT, getDateTime, checkMissingFields } = require(__helpers + "/utils.js");
 const bcrypt = require("bcrypt");
+const sendEmail = require('../../helpers/email')
+
 
 function ragister(req, res, next) {
     let payload = req.body;
@@ -47,6 +49,7 @@ function ragister(req, res, next) {
                       }
                     })
                   });
+                  sendEmail(result[0].dataValues.user_id.email_id, payload, 1);
               });
         }
       })

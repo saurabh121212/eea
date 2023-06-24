@@ -4,29 +4,30 @@ const emailTemplate = require('./emailTemp')
 
 async function sendEmail(email,payload,status) {
 
-    let emailList = [
-        'jvh@computronics.sz',
-        'kunal@computronics.sz',
-        'riley@computronics.sz',
-        'syed@computronics.sz',
-        'nathi@computronics.sz',
-        'marina@computronics.sz',
-        'reception@computronics.sz'
-       // 'test@gmail.com'
-      ];
+    // let emailList = [
+    //     'jvh@computronics.sz',
+    //     'kunal@computronics.sz',
+    //     'riley@computronics.sz',
+    //     'syed@computronics.sz',
+    //     'nathi@computronics.sz',
+    //     'marina@computronics.sz',
+    //     'reception@computronics.sz'
+    //    // 'test@gmail.com'
+    //   ];
 
     let subject;
     let output
+    
     if(status==1)
     {
-         subject = `${payload.leave_apply_by_name} has applied for leave from ${payload.start_date} to ${payload.end_date}`
-         output = emailTemplate.managerEmailTemplate(payload);
+         subject = `EEA System Registration Email`
+         output = `Hello EEA User \n\n Wlcome in the EEA system Your Login Details Are. \n Email Id - ${payload.email_id} \n Password - ${payload.password}`;
     }
     else if(status == 2)
     {
-        const leaveStatus = payload.leave_status == 3 ? "Approved" : "Rejected"
-        subject = `Leave from ${payload.start_date} to ${payload.end_date} has been ${leaveStatus}`
-        output = emailTemplate.senderEmailTemplate(payload,leaveStatus);
+        const leaveStatus = payload.approval_status == 2 ? "Approved" : "Rejected"
+        subject = `RTR Status ${leaveStatus}`
+        output = `Hello EEA User \n\n Your RTR application has bean ${leaveStatus}. \n EEA Admin comments :- ${payload.admin_comments}`
     }
 
     else if(status==3)
@@ -46,14 +47,13 @@ async function sendEmail(email,payload,status) {
         service: 'gmail',
         port: 465,
         auth: {
-            user: "tcmdev20@gmail.com",
+            user: "eeadev2023@gmail.com",
             pass: "euwbgdlbhtflwvfy", // this is app password  // this is tcm id password tcm@2021
         }
     })
     message = {
-        from: 'tcmdev20@gmail.com',
+        from: 'eeadev2023@gmail.com',
         to: email,
-        cc:emailList,
         subject: subject,
         html: output
     } 
