@@ -1,5 +1,6 @@
 const rtr = require("./DAO");
 const { generateJWT, getDateTime, checkMissingFields } = require(__helpers + "/utils.js");
+const sendEmail = require('../../helpers/email')
 
 
 
@@ -105,6 +106,9 @@ function rtrCreate(req, res, next) {
             list: result
           }
         })
+        
+        sendEmail(payload.email_id, payload, 2);
+
       }).catch(err => {
         res.data = { err }
         return res;

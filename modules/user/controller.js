@@ -19,6 +19,8 @@ function ragister(req, res, next) {
       return next()
     }
   
+    let emailPassword = payload.password;
+
     payload.password = bcrypt.hashSync(payload.password, 10);
     payload = { ...payload, created_at: getDateTime(), del_status: 1};
   
@@ -33,7 +35,7 @@ function ragister(req, res, next) {
           })
         }
         else {
-            console.log("user id ",result.user_id," ",result[0].dataValues.user_id);
+            //console.log("user id ",result.user_id," ",result[0].dataValues.user_id);
              // generate JWT token
           let token = generateJWT({ user_id: result[0].dataValues.user_id, user_type: result[0].dataValues.user_type }, process.env.JWT_SECRET);
           // update user with JWT token
@@ -49,7 +51,7 @@ function ragister(req, res, next) {
                       }
                     })
                   });
-                  sendEmail(result[0].dataValues.user_id.email_id, payload, 1);
+                  sendEmail(result[0].dataValues.email_id, emailPassword, 1);
               });
         }
       })
