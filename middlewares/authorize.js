@@ -5,7 +5,8 @@ module.exports = function (...userTypes) {
   return async function (req, res, next) {
   
     let jwt = req.header("authorization");
-  
+    console.log("JWT token",jwt);
+
     if(!jwt) {
       req.user = {
           role: "public"

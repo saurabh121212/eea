@@ -7,7 +7,8 @@ module.exports = {
     ragister,
     updateToken,
     infoV2,
-    login
+    login,
+    info
 }
 
 async function ragister(payload = {}) {
@@ -59,3 +60,12 @@ async function ragister(payload = {}) {
         }) 
       } 
 
+
+      async function info(values = {}) {
+        return user.findOne({
+          where: { user_id: values.id },
+        })
+          .then(result => {
+            return result
+          })
+      }

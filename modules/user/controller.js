@@ -61,7 +61,6 @@ function ragister(req, res, next) {
       });
   }
 
-
   function login(req, res, next) {
     let payload = req.body;
     let missingFields = checkMissingFields(payload, ['email_id', 'password'])
