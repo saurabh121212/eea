@@ -6,7 +6,7 @@ const app = require('./app');
 
 
 //Server Startup
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 const server = app.listen(port, () => {
 	console.log(`App is runnning in ${process.env.NODE_ENV} environment on port ${port}`);
 });

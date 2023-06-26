@@ -17,6 +17,12 @@ module.exports = {
       to_date: {
         type: Sequelize.DATE
       },
+      month_text: {
+        type: Sequelize.STRING(50)
+      },
+      month_number: {
+        type: Sequelize.INTEGER
+      },
       company_name: {
         type: Sequelize.STRING(400)
       },

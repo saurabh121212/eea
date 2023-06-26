@@ -6,7 +6,7 @@ const sendEmail = require('../../helpers/email')
 
 function rtrCreate(req, res, next) {
     let payload = req.body;
-    let missingFields = checkMissingFields(payload, ['from_date', 'to_date', 'tin',
+    let missingFields = checkMissingFields(payload, ['month_text', 'month_number', 'tin',
     'company_name', 'email_id', 'first_name'])
     if (missingFields.length) {
       res.status(400).json({
