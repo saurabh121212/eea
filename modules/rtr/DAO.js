@@ -19,11 +19,16 @@ async function rtrCreate(payload = {}) {
     }
 
 
-    async function rtrList(){
+    async function rtrList(payload ={}){
         return rtr.findAll({
           where:{
-            del_status:1
-          }
+            del_status:1,
+            month_number:payload.month_number,
+            current_year:payload.current_year
+          },
+          order: [
+            ['rtr_id', 'DESC'],
+        ],
         }).then((result)=>{
           return result
         })
@@ -35,7 +40,10 @@ async function rtrCreate(payload = {}) {
           where:{
             user_id:user_id,
             del_status:1
-          }
+          },
+          order: [
+            ['rtr_id', 'DESC'],
+        ],
         }).then((result)=>{
           return result
         })

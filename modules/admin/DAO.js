@@ -15,7 +15,10 @@ async function userDetails(){
        del_status:1,
        user_type:2,
        approval_status:2
-     }
+     },
+     order: [
+       ['user_id', 'DESC'],
+   ],
     }).then((result)=>{
       return result;
     })
@@ -29,7 +32,10 @@ async function userDetails(){
        del_status:1,
        user_type:2,
        approval_status:1
-     }
+     },
+     order: [
+      ['user_id', 'DESC'],
+  ],
     }).then((result)=>{
       return result;
     })

@@ -38,13 +38,14 @@ function rtrCreate(req, res, next) {
 
 
   function rtrList(req,res,next){
+    let payload = req.body;
 
-    rtr.rtrList()
+    rtr.rtrList(payload)
     .then(result=>{
       res.status(200).json({
         status: 200,
           result:{
-            mes: "Holidays List",
+            mes: "Holidays List Month and Year wise",
             list:result
           }
       })
