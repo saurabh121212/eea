@@ -3,7 +3,8 @@ const { Op, Sequelize } = require("sequelize");
 
 module.exports = {
     userDetails,
-    userAprovel
+    userAprovel,
+    pendingUserDetails
 }
 
 
@@ -12,7 +13,22 @@ async function userDetails(){
      attributes: {exclude:['password','otp','year','token']},
      where:{
        del_status:1,
-       user_type:2
+       user_type:2,
+       approval_status:2
+     }
+    }).then((result)=>{
+      return result;
+    })
+  }
+
+
+  async function pendingUserDetails(){
+    return user.findAll({
+     attributes: {exclude:['password','otp','year','token']},
+     where:{
+       del_status:1,
+       user_type:2,
+       approval_status:1
      }
     }).then((result)=>{
       return result;

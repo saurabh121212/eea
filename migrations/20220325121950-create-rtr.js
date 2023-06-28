@@ -23,6 +23,9 @@ module.exports = {
       month_number: {
         type: Sequelize.INTEGER
       },
+      current_year: {
+        type: Sequelize.INTEGER
+      },  
       company_name: {
         type: Sequelize.STRING(400)
       },

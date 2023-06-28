@@ -25,6 +25,7 @@ module.exports = (sequelize, DataTypes) => {
     to_date: DataTypes.DATE,
     month_text: DataTypes.STRING(50),
     month_number: DataTypes.INTEGER,
+    current_year: DataTypes.INTEGER,
     tin: DataTypes.STRING(200),
     company_name: DataTypes.STRING(400),
     telephone_number: DataTypes.DOUBLE,

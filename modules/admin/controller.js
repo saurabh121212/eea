@@ -9,7 +9,24 @@ function userDetails(req, res, next) {
         res.status(200).json({
           status: 200,
           result: {
-            mes: "User List",
+            mes: "Users Aproved by Admin",
+            list: result
+          }
+        })
+      }).catch(err => {
+        res.data = { err }
+        return res;
+      })
+  }
+
+
+  function pendingUserDetails(req, res, next) {
+    User.pendingUserDetails()
+      .then((result) => {
+        res.status(200).json({
+          status: 200,
+          result: {
+            mes: "Users aprovel Pending",
             list: result
           }
         })
@@ -53,5 +70,6 @@ function userDetails(req, res, next) {
 
   module.exports = {
     userDetails,
-    userAprovel
+    userAprovel,
+    pendingUserDetails
   }

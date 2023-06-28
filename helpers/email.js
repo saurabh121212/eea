@@ -21,7 +21,7 @@ async function sendEmail(email,payload,status) {
     if(status==1)
     {
          subject = `EEA System Registration Email`
-         output = `Hello EEA User <br><br> Wlcome in the EEA system your login details are. <br> Email Id - ${email} <br> Password - ${payload}`;
+         output = `Hello EEA User <br><br> Wlcome in the EEA system your login details are. <br> Email Id - ${email} <br> Password - ${payload} <br> we have sent your request to EEA admin once your rewyest is aproved will notify you.`;
     }
     else if(status == 2)
     {
@@ -35,7 +35,6 @@ async function sendEmail(email,payload,status) {
     //      subject = `${payload.apply_by_name} has applied for OD for Date ${payload.od_date} and time ${payload.od_start_time} to ${payload.od_end_time}`
     //      output = emailTemplate.managerEmailTemplateOD(payload);
     // }
-
     // else if(status == 4)
     // {
     //     const leaveStatus = payload.od_status == 3 ? "Approved" : "Rejected"
