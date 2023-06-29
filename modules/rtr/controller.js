@@ -26,7 +26,8 @@ function rtrCreate(req, res, next) {
         res.status(200).json({ 
           status: 200,
           result:{
-            mes: "RTR Created" 
+            mes: "RTR Created", 
+            data:result
           }
         })
       })
