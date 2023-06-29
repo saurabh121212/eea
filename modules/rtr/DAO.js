@@ -13,13 +13,18 @@ async function rtrCreate(payload = {}) {
     console.log("flow 2 ",payload);
     return rtr.create(
        payload
-    ).then((result)=>{
-        return result
-      }).then((err)=>{
-        console.log(err)
-        return err;
-      })
+    ).then((err)=>{
+           console.log(err)
+           return err;
+         })
     }
+    // ).then((result)=>{
+    //     return result
+    //   }).then((err)=>{
+    //     console.log(err)
+    //     return err;
+    //   })
+    // }
 
 
     async function rtrList(payload ={}){
