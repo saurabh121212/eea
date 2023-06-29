@@ -16,7 +16,9 @@ async function rtrCreate(payload = {}) {
     ).then((err)=>{
            console.log(err)
            return err;
-         })
+      }).catch((error) => {
+        console.error('Unable to create table : ', error);
+     }); 
     }
     // ).then((result)=>{
     //     return result

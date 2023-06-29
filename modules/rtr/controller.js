@@ -1,6 +1,7 @@
 const rtr = require("./DAO");
 const { generateJWT, getDateTime, checkMissingFields } = require(__helpers + "/utils.js");
-const sendEmail = require('../../helpers/email')
+const sendEmail = require('../../helpers/email');
+const e = require("cors");
 
 
 function rtrCreate(req, res, next) {
@@ -32,8 +33,8 @@ function rtrCreate(req, res, next) {
             data:result
           }
         })
-      })
-      .catch(err => {
+      }).catch(err => {
+        console.log("this is error ", err);
         res.data = { err }
         return res;
       });
