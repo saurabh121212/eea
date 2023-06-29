@@ -10,7 +10,7 @@ module.exports = {
 }
 
 async function rtrCreate(payload = {}) {
-    //console.log("testing flow ", payload);
+    console.log("flow 2");
     return rtr.create(
        payload
     ).then((result)=>{
