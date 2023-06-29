@@ -20,14 +20,44 @@ async function sendEmail(email,payload,status) {
     
     if(status==1)
     {
-         subject = `EEA System Registration Email`
-         output = `Hello EEA User <br><br> Wlcome in the EEA system your login details are. <br> Email Id - ${email} <br> Password - ${payload} <br> we have sent your request to EEA admin once your rewyest is aproved will notify you.`;
+         subject = `Eswatini Environment Authority – Plastic Return Filing System -
+         Registration Request Received`
+        // output = `<b> Dear User, </b></b> Thank you for registering with Eswatini Environment Authority’s plastic return filing system. <br> Your request is currently under review. We will send you a confirmation email once it is approved by EEA’s system admin. <br></b> Please use the following credentials to log into the system once your registration is approved: <br></b> Email ID - ${email} <br> Password - ${payload} <b> Regards,</b> <br>EEA System Admin <br>For any issues, please contact: <br>Eswatini Environment Authority <br> RHUS Office Park <br> Karl Grant Street <br> Mbabane <br> Eswatini`;    
+         output = emailTemplate.ragistrationEmail(payload,email);
     }
     else if(status == 2)
     {
-        const leaveStatus = payload.approval_status == 2 ? "Approved" : "Rejected"
-        subject = `EEA RTR Status ${leaveStatus}`
-        output = `Hello EEA User <br><br> Your RTR application has bean ${leaveStatus}. <br> EEA Admin comments :- ${payload.admin_comments}`
+        const RTRStatus = payload.approval_status == 2 ? "Approved" : "Rejected"
+        // subject = `EEA RTR Status ${leaveStatus}`
+        // output = `Hello EEA User <br><br> Your RTR application has bean ${leaveStatus}. <br> EEA Admin comments :- ${payload.admin_comments}`
+       
+        if(payload.approval_status == 2)
+        {
+            subject = `Eswatini Environment Authority – Plastic Return Filing System – Plastic Return ${RTRStatus}`
+            output = emailTemplate.RTRApprovedEmailTemplate(payload);
+        }
+        else if(payload.approval_status == 3)
+        {
+            subject = `Eswatini Environment Authority – Plastic Return Filing System – Plastic Return ${RTRStatus}`
+            output = emailTemplate.RTRRejectedEmailTemplate(payload);
+        }
+
+    }
+    else if(status == 3)
+    {
+        const userAprovelStatus = payload.approval_status == 2 ? "Approved" : "Rejected"
+        if (payload.approval_status == 2)
+        {
+            subject = `Eswatini Environment Authority – Plastic Return Filing System - Registration Request ${userAprovelStatus}`
+            output = emailTemplate.userApprovedEmailTemplate(payload);
+        }
+        else if (payload.approval_status == 3)
+        {
+            subject = `Eswatini Environment Authority – Plastic Return Filing System - Registration Request ${userAprovelStatus}`
+            output = emailTemplate.userRejectedEmailTemplate(payload);
+        }
+        
+        //output = `Hello EEA User <br><br> Your Ragistration application has been ${userAprovelStatus}.`
     }
 
     // else if(status==3)
@@ -40,7 +70,8 @@ async function sendEmail(email,payload,status) {
     //     const leaveStatus = payload.od_status == 3 ? "Approved" : "Rejected"
     //     subject = `Your OD has been ${leaveStatus} for the date of ${payload.payloadData.od_date} and time ${payload.payloadData.od_start_time} to ${payload.payloadData.od_end_time}`
     //     output = `Hello User, <br><br>Your OD Application has ${leaveStatus} for the date of ${payload.payloadData.od_date} and time ${payload.payloadData.od_start_time} to ${payload.payloadData.od_end_time} by your manager <br>Comments From Manager :-  ${payload.send_to_comments}`
-    // }
+    
+    // }output = emailTemplate.managerEmailTemplate(payload);
 
     let transporter = nodemailer.createTransport({
         service: 'gmail',

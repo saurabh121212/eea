@@ -6,6 +6,7 @@ const auth = require("../../middlewares/authorize")
 // This web service is use to get the user list which are approved by Admin
 router.get('/user_list',auth(1),userController.userDetails);
 
+
 // This web service is use to get the user list which aprovel is pending 
 router.get('/pending_user_list',auth(1),userController.pendingUserDetails);
 

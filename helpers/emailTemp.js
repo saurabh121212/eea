@@ -1,29 +1,140 @@
-const senderEmailTemplate = (payload, status) => 
+const RTRRejectedEmailTemplate = (payload) => 
 `<html>
 <head>
     <title></title>
 </head>
 <body>
     <!-- Take only this part for email -->
-    <table>
-        <tr>
-            <td>
-                <div
-                    style=" margin-left: 10px; border-left:4px solid rgb(0, 22, 148); padding: 14px 32px 14px 20px; font-family: Arial, Helvetica, sans-serif;">
-                    Your application for leave starting from
-                    <strong>${payload.start_date} to ${payload.end_date}</strong> has been <strong style="color:green">${status}</strong>
-                     by your manager
-                </div>
-                <div>
-                Comment by manager - ${payload.assigned_to_comments}
-                </div>
-            </td>
-        </tr>
-    </table>
+   
+    <b>Dear User,</b> <br>
+
+    <p>We regret to inform you that your plastic return, filed for this month has been rejected
+    by EEA.<p>
+    Comments, if any, by EEA:<br> 
+    ${payload.admin_comments}
+    <p> We request you to log into the plastic return filing system and revise your return for
+    this month.</p>
+    <b> Regards, </b> <br>
+    EEA System Admin
+    <br><br>
+    <b> Eswatini Environment Authority </b><br>
+    RHUS Office Park<br>
+    Karl Grant Street<br>
+    Mbabane<br>
+    Eswatini<br>
+
     </body>
     </html>`
 
 
+
+
+const RTRApprovedEmailTemplate = (payload) => 
+`<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <!-- Take only this part for email -->
+   
+    <b>Dear User,</b> <br>
+
+    <p>We are pleased to inform you that your plastic return filed for this month has been approved by EEA.<p>
+    Comments, if any, by EEA:<br> 
+    ${payload.admin_comments}
+    <p> We thank you for your support.</p>
+    <b> Regards, </b> <br>
+    EEA System Admin
+    <br><br>
+    <b> Eswatini Environment Authority </b><br>
+    RHUS Office Park<br>
+    Karl Grant Street<br>
+    Mbabane<br>
+    Eswatini<br>
+
+    </body>
+    </html>`
+
+
+// Ragistration Email 
+const ragistrationEmail = (payload,email) => 
+`<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <!-- Take only this part for email -->
+   
+    <b>Dear User,</b> <br>
+    <p>Thank you for registering with Eswatini Environment Authority’s plastic return filing
+    system.</p> 
+    <p>Your request is currently under review. We will send you a confirmation email once it
+    is approved by EEA’s system admin.</p>
+    <p> Please use the following credentials to log into the system once your registration is
+    approved:</p>
+    Email ID - ${email}<br>
+    Password - ${payload}<br><br>
+    <b> Regards, </b> <br>
+    EEA System Admin
+    <br><br>
+    <b> Eswatini Environment Authority </b><br>
+    RHUS Office Park<br>
+    Karl Grant Street<br>
+    Mbabane<br>
+    Eswatini<br>
+
+    </body>
+    </html>`
+
+
+
+// Ragister User Apprvle
+const userApprovedEmailTemplate = (payload,email) => 
+`<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <!-- Take only this part for email -->
+   
+    <b>Dear User,</b> <br>
+    <p>We are pleased to inform you that your registration request has been approved.</p> 
+    <b> Regards, </b> <br>
+    EEA System Admin
+    <br><br>
+    <b> Eswatini Environment Authority </b><br>
+    RHUS Office Park<br>
+    Karl Grant Street<br>
+    Mbabane<br>
+    Eswatini<br>
+
+    </body>
+    </html>`
+
+
+
+const userRejectedEmailTemplate = (payload,email) => 
+`<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <!-- Take only this part for email -->
+   
+    <b>Dear User,</b> <br>
+    <p>We regret to inform you that your registration request was not accepted. Please
+    contact the system admin to understand why your request was rejected.</p> 
+    <b> Regards, </b> <br>
+    EEA System Admin
+    <br><br>
+    <b> Eswatini Environment Authority </b><br>
+    RHUS Office Park<br>
+    Karl Grant Street<br>
+    Mbabane<br>
+    Eswatini<br>
+
+    </body>
+    </html>`
 
     // This is a Manager Email Template.
 
@@ -146,116 +257,14 @@ const senderEmailTemplate = (payload, status) =>
 
 
 
-   // This is a Manager Email Template for OD.
-
-   const managerEmailTemplateOD = (payload)=>
-   `
-   <!DOCTYPE html>
-   <html>
    
-   <head>
-       <title></title>
-   </head>
-   
-   <body>
-       <!-- Take only this part for email -->    
-       <table style="width: 720px; font-family: Arial, Helvetica, sans-serif; ">
-           <tr>
-               <td colspan="2" style="text-align: center;padding: 12px; border-bottom: 1px solid #ccc;">OD Application
-               </td>
-           </tr>
-           <tr>
-               <td style="width: 50%; vertical-align: top;">
-                   <div style=" margin-left: 10px; padding: 10px; ">
-                       Employee name
-                   </div>
-               </td>
-               <td style="vertical-align: top;">
-                   <div style=" margin-left: 10px; padding: 10px;">
-                       ${payload.apply_by_name}
-                   </div>
-               </td>
-           </tr>
-           <tr>
-               <td style="width: 50%; vertical-align: top;">
-                   <div style=" margin-left: 10px; padding: 10px; ">
-                   Date of application
-                   </div>
-               </td>
-               <td style="vertical-align: top;">
-                   <div style=" margin-left: 10px; padding: 10px;">
-                   ${payload.created_at} 
-                   </div>
-               </td>
-           </tr>
-           <tr>
-               <td style="width: 50%; vertical-align: top;">
-                   <div style=" margin-left: 10px; padding: 10px; ">
-                   OD Date
-                   </div>
-               </td>
-               <td style="vertical-align: top;">
-                   <div style=" margin-left: 10px; padding: 10px;">
-                   ${payload.od_date}
-                   </div>
-               </td>
-           </tr>
-           <tr>
-               <td style="width: 50%; vertical-align: top;">
-                   <div style=" margin-left: 10px; padding: 10px; ">
-                   OD Time
-                   </div>
-               </td>
-               <td style="vertical-align: top;">
-                   <div style=" margin-left: 10px; padding: 10px;">
-                   ${payload.od_start_time} to ${payload.od_end_time}
-                   </div>
-               </td>
-           </tr>
-
-
-           <tr>
-           <td style="width: 50%; vertical-align: top;">
-               <div style=" margin-left: 10px; padding: 10px; ">
-               Employee Comments
-               </div>
-           </td>
-           <td style="vertical-align: top;">
-               <div style=" margin-left: 10px; padding: 10px;">
-               ${payload.od_comments}
-               </div>
-           </td>
-          </tr>
-
-
-           <tr>
-               <td>
-                   <a href="http://10.0.10.105/report/od-requests">
-                       <button type="button"
-                           style="border: 0px; background:lightgreen; width: 100%; height: 40px; text-transform: uppercase;">
-                           Approve
-                       </button>
-                   </a>
-               </td>
-               <td>
-                   <a href="http://10.0.10.105/report/od-requests">
-                       <button type="button"
-                           style="border: 0px; background:lightcoral; width: 100%; height: 40px; text-transform: uppercase;">
-                           Reject
-                       </button>
-                   </a>
-               </td>
-           </tr>
-       </table>
-   </body>
-   
-   </html>
-   ` 
 
 
     
     module.exports ={
-        senderEmailTemplate,
-        managerEmailTemplate,
-        managerEmailTemplateOD
+        RTRRejectedEmailTemplate,
+        RTRApprovedEmailTemplate,
+        ragistrationEmail,
+        userApprovedEmailTemplate,
+        userRejectedEmailTemplate
     }

@@ -1,6 +1,7 @@
 const User = require("./DAO");
 const { generateJWT, getDateTime, checkMissingFields } = require(__helpers + "/utils.js");
 const bcrypt = require("bcrypt");
+const sendEmail = require('../../helpers/email')
 
 
 function userDetails(req, res, next) {
@@ -61,6 +62,9 @@ function userDetails(req, res, next) {
             list: result
           }
         })
+
+        sendEmail(payload.email_id, payload, 3);
+
       }).catch(err => {
         res.data = { err }
         return res;

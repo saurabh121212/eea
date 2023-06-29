@@ -23,8 +23,8 @@ async function rtrCreate(payload = {}) {
         return rtr.findAll({
           where:{
             del_status:1,
-            month_number:payload.month_number,
-            current_year:payload.current_year
+            // month_number:payload.month_number,
+            // current_year:payload.current_year
           },
           order: [
             ['rtr_id', 'DESC'],

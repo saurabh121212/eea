@@ -30,7 +30,7 @@ function ragister(req, res, next) {
           res.status(402).json({
             status: 402,
             result: {
-              mes: "This Email is already Exists in the system"
+              mes: "This Email is already Exists in the system."
             }
           })
         }
@@ -39,6 +39,7 @@ function ragister(req, res, next) {
              // generate JWT token
           let token = generateJWT({ user_id: result[0].dataValues.user_id, user_type: result[0].dataValues.user_type }, process.env.JWT_SECRET);
           // update user with JWT token
+
           User.updateToken(token, result[0].dataValues.user_id).
             then(() => {
                 User.infoV2(result[0].dataValues.user_id).

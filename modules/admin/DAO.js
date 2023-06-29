@@ -1,3 +1,4 @@
+const SendmailTransport = require('nodemailer/lib/sendmail-transport');
 const { user } = require('../../models');
 const { Op, Sequelize } = require("sequelize");
 
