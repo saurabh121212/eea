@@ -13,21 +13,7 @@ async function rtrCreate(payload = {}) {
     console.log("flow 2 ",payload);
     return rtr.create(
        payload
-    ).then((err)=>{
-           console.log(err)
-           return err;
-      }).catch((error) => {
-        console.error('Unable to create table : ', error);
-     }); 
-    }
-    // ).then((result)=>{
-    //     return result
-    //   }).then((err)=>{
-    //     console.log(err)
-    //     return err;
-    //   })
-    // }
-
+    )}
 
     async function rtrList(payload ={}){
         return rtr.findAll({

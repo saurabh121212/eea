@@ -34,7 +34,7 @@ function rtrCreate(req, res, next) {
           }
         })
       }).catch(err => {
-        console.log("this is error ", err);
+        console.log("this is error ",err);
         res.data = { err }
         return res;
       });
