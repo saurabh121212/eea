@@ -6,7 +6,7 @@ const auth = require("../../middlewares/authorize")
 router.post('/create',auth(2),rtrController.rtrCreate);
 
 // list of all RTR
-router.get('/list',auth(2),rtrController.rtrList);
+router.post('/list',auth(2),rtrController.rtrList);
 
 // List of RTR by User_id for specific user
 router.get('/list/:user_id',auth(2),rtrController.rtrListUser);

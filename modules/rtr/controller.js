@@ -41,7 +41,7 @@ function rtrCreate(req, res, next) {
   }
 
 
-  function rtrList(req,res,next){
+  function rtrList(req,res,){
     console.log('Parames Check RTR ', req.params);
     let payload = req.body;
 
