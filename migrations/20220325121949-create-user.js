@@ -73,7 +73,7 @@ module.exports = {
             designation: "System Admin",
             cell_phone_number: "123456789",
             email_id: "eeaadmin",
-            password: "$2b$10$c1b28Wf5S3suemCUovCuTenWNXojzNO0/UJ5x.qFfscrpXSsT0oKi",
+            password: "$2a$10$RD2uiBNYRECnmvHyjEMjGeIEZY/g/09KZzsjcfYB/6DzITVNSeDHe",
             del_status: 1,
             user_type: 1,
             approval_status:1
