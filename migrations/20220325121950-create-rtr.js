@@ -45,10 +45,10 @@ module.exports = {
         type: Sequelize.STRING(200)
       },
       telephone_number: {
-        type: Sequelize.DOUBLE
+        type: Sequelize.STRING(200)
       },
       cell_phone_number: {
-        type: Sequelize.DOUBLE
+        type: Sequelize.STRING(200)
       },
       email_id: {
         type: Sequelize.STRING(300)
