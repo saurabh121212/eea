@@ -20,8 +20,7 @@ async function sendEmail(email,payload,status) {
     
     if(status==1)
     {
-         subject = `Eswatini Environment Authority – Plastic Return Filing System -
-         Registration Request Received`
+         subject = `Eswatini Environment Authority – Plastic Return Filing System - Registration Request Received`
         // output = `<b> Dear User, </b></b> Thank you for registering with Eswatini Environment Authority’s plastic return filing system. <br> Your request is currently under review. We will send you a confirmation email once it is approved by EEA’s system admin. <br></b> Please use the following credentials to log into the system once your registration is approved: <br></b> Email ID - ${email} <br> Password - ${payload} <b> Regards,</b> <br>EEA System Admin <br>For any issues, please contact: <br>Eswatini Environment Authority <br> RHUS Office Park <br> Karl Grant Street <br> Mbabane <br> Eswatini`;    
          output = emailTemplate.ragistrationEmail(payload,email);
     }
