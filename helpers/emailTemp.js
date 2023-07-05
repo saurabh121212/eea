@@ -22,9 +22,9 @@ const RTRRejectedEmailTemplate = (payload) =>
     Karl Grant Street<br>
     Mbabane<br>
     Eswatini<br>
-    email: systems@eea.org.sz <br>
+    Email: systems@eea.org.sz <br>
     Tell: +268 2404 6960/7893 <br>
-    Cell: +268 7854 6907 or 78061658 <br>
+    Cell: +268 7854 6907 or 7806 1658 <br>
 
     </body>
     </html>`
@@ -54,9 +54,9 @@ const RTRApprovedEmailTemplate = (payload) =>
     Karl Grant Street<br>
     Mbabane<br>
     Eswatini<br>
-    email: systems@eea.org.sz <br>
+    Email: systems@eea.org.sz <br>
     Tell: +268 2404 6960/7893 <br>
-    Cell: +268 7854 6907 or 78061658 <br>
+    Cell: +268 7854 6907 or 7806 1658 <br>
     </body>
     </html>`
 
@@ -87,9 +87,9 @@ const ragistrationEmail = (payload,email) =>
     Karl Grant Street<br>
     Mbabane<br>
     Eswatini<br>
-    email: systems@eea.org.sz <br>
+    Email: systems@eea.org.sz <br>
     Tell: +268 2404 6960/7893 <br>
-    Cell: +268 7854 6907 or 78061658 <br>
+    Cell: +268 7854 6907 or 7806 1658 <br>
     </body>
     </html>`
 
@@ -114,9 +114,9 @@ const userApprovedEmailTemplate = (payload,email) =>
     Karl Grant Street<br>
     Mbabane<br>
     Eswatini<br>
-    email: systems@eea.org.sz <br>
+    Email: systems@eea.org.sz <br>
     Tell: +268 2404 6960/7893 <br>
-    Cell: +268 7854 6907 or 78061658 <br>
+    Cell: +268 7854 6907 or 7806 1658 <br>
     </body>
     </html>`
 
@@ -141,9 +141,9 @@ const userRejectedEmailTemplate = (payload,email) =>
     Karl Grant Street<br>
     Mbabane<br>
     Eswatini<br>
-    email: systems@eea.org.sz <br>
+    Email: systems@eea.org.sz <br>
     Tell: +268 2404 6960/7893 <br>
-    Cell: +268 7854 6907 or 78061658 <br>
+    Cell: +268 7854 6907 or 7806 1658 <br>
     </body>
     </html>`
 
