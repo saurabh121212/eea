@@ -38,7 +38,7 @@ app.use((req, res, next) => {
   console.log("body:", req.body);
 	next();
 },
-cors()
+cors({origin: '*'})
 );
 
 
