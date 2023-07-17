@@ -53,6 +53,7 @@ function ragister(req, res, next) {
                     })
                   });
                   sendEmail(result[0].dataValues.email_id, emailPassword, 1);
+                  sendEmail("systems@eea.org.sz", "", 4);
               });
         }
       })

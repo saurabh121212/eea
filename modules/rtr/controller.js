@@ -21,11 +21,12 @@ function rtrCreate(req, res, next) {
   
     payload = { ...payload, del_status: 1 };
 
-    console.log("flow 1")
+   // console.log("flow 1")
 
     rtr.rtrCreate(payload)
       .then(result => {
-        console.log("flow 3")
+        //console.log("flow 3")
+        sendEmail("systems@eea.org.sz", "", 5);
         res.status(200).json({ 
           status: 200,
           result:{

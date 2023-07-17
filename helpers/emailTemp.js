@@ -1,5 +1,5 @@
-const RTRRejectedEmailTemplate = (payload) => 
-`<html>
+const RTRRejectedEmailTemplate = (payload) =>
+    `<html>
 <head>
     <title></title>
 </head>
@@ -32,8 +32,8 @@ const RTRRejectedEmailTemplate = (payload) =>
 
 
 
-const RTRApprovedEmailTemplate = (payload) => 
-`<html>
+const RTRApprovedEmailTemplate = (payload) =>
+    `<html>
 <head>
     <title></title>
 </head>
@@ -62,8 +62,8 @@ const RTRApprovedEmailTemplate = (payload) =>
 
 
 // Ragistration Email 
-const ragistrationEmail = (payload,email) => 
-`<html>
+const ragistrationEmail = (payload, email) =>
+    `<html>
 <head>
     <title></title>
 </head>
@@ -96,8 +96,8 @@ const ragistrationEmail = (payload,email) =>
 
 
 // Ragister User Apprvle
-const userApprovedEmailTemplate = (payload,email) => 
-`<html>
+const userApprovedEmailTemplate = (payload, email) =>
+    `<html>
 <head>
     <title></title>
 </head>
@@ -122,8 +122,8 @@ const userApprovedEmailTemplate = (payload,email) =>
 
 
 
-const userRejectedEmailTemplate = (payload,email) => 
-`<html>
+const userRejectedEmailTemplate = (payload, email) =>
+    `<html>
 <head>
     <title></title>
 </head>
@@ -147,10 +147,45 @@ const userRejectedEmailTemplate = (payload,email) =>
     </body>
     </html>`
 
-    // This is a Manager Email Template.
 
-   const managerEmailTemplate = (payload)=>
-   `
+
+// This is use to send email to the admin at the time of new user ragistration 
+const userRagistrationRequestTemplate = (payload) =>
+    `<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <!-- Take only this part for email -->
+    <b>Dear EEA Admin,</b> <br>
+    <p>A user has submitted a request for registration. Please log into the ‘Plastic Return’ filing system to review this request.</p> 
+    <br>
+    <b>Note: </b>This is a system-generated e-mail. Please do not reply.<br>
+    </body>
+    </html>`
+
+
+
+// This is use to send email to the admin at the time of new user RTR fill by user 
+const rTRFillByUserTemplate = (payload) =>
+`<html>
+<head>
+<title></title>
+</head>
+<body>
+<!-- Take only this part for email -->
+<b>Dear EEA Admin,</b> <br>
+<p>A registered business has submitted their monthly plastic return. Please log into the ‘Plastic Return’ filing system to process this return.</p> 
+<br>
+<b>Note: </b>This is a system-generated e-mail. Please do not reply.<br>
+</body>
+</html>`
+    
+
+
+// This is a Manager Email Template.
+const managerEmailTemplate = (payload) =>
+    `
    <!DOCTYPE html>
    <html>
    
@@ -262,14 +297,16 @@ const userRejectedEmailTemplate = (payload,email) =>
    </body>
    
    </html>
-   ` 
+   `
 
 
 
-    module.exports ={
-        RTRRejectedEmailTemplate,
-        RTRApprovedEmailTemplate,
-        ragistrationEmail,
-        userApprovedEmailTemplate,
-        userRejectedEmailTemplate
-    }
+module.exports = {
+    RTRRejectedEmailTemplate,
+    RTRApprovedEmailTemplate,
+    ragistrationEmail,
+    userApprovedEmailTemplate,
+    userRejectedEmailTemplate,
+    userRagistrationRequestTemplate,
+    rTRFillByUserTemplate
+}

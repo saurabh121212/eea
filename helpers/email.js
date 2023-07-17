@@ -59,11 +59,19 @@ async function sendEmail(email,payload,status) {
         //output = `Hello EEA User <br><br> Your Ragistration application has been ${userAprovelStatus}.`
     }
 
-    // else if(status==3)
-    // {
-    //      subject = `${payload.apply_by_name} has applied for OD for Date ${payload.od_date} and time ${payload.od_start_time} to ${payload.od_end_time}`
-    //      output = emailTemplate.managerEmailTemplateOD(payload);
-    // }
+    else if(status==4)
+    {
+         subject = `Business registration request received`
+         output = emailTemplate.userRagistrationRequestTemplate(payload);
+    }
+
+    else if(status==5)
+    {
+         subject = `Plastic return filed`
+         output = emailTemplate.userRagistrationRequestTemplate(payload);
+    }
+
+
     // else if(status == 4)
     // {
     //     const leaveStatus = payload.od_status == 3 ? "Approved" : "Rejected"
