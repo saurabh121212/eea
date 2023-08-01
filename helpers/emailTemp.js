@@ -25,7 +25,8 @@ const RTRRejectedEmailTemplate = (payload) =>
     Email: systems@eea.org.sz <br>
     Tell: +268 2404 6960/7893 <br>
     Cell: +268 7854 6907 or 7806 1658 <br>
-
+    <br><br><br>
+    <p style="color:red;"> *This is system-generated mail. We request you not reply on this email.</p>
     </body>
     </html>`
 
@@ -57,6 +58,8 @@ const RTRApprovedEmailTemplate = (payload) =>
     Email: systems@eea.org.sz <br>
     Tell: +268 2404 6960/7893 <br>
     Cell: +268 7854 6907 or 7806 1658 <br>
+    <br><br><br>
+    <p style="color:red;"> *This is system-generated mail. We request you not reply on this email.</p>
     </body>
     </html>`
 
@@ -90,6 +93,8 @@ const ragistrationEmail = (payload, email) =>
     Email: systems@eea.org.sz <br>
     Tell: +268 2404 6960/7893 <br>
     Cell: +268 7854 6907 or 7806 1658 <br>
+    <br><br><br>
+    <p style="color:red;"> *This is system-generated mail. We request you not reply on this email.</p>
     </body>
     </html>`
 
@@ -117,6 +122,8 @@ const userApprovedEmailTemplate = (payload, email) =>
     Email: systems@eea.org.sz <br>
     Tell: +268 2404 6960/7893 <br>
     Cell: +268 7854 6907 or 7806 1658 <br>
+    <br><br><br>
+    <p style="color:red;"> *This is system-generated mail. We request you not reply on this email.</p>
     </body>
     </html>`
 
@@ -144,6 +151,8 @@ const userRejectedEmailTemplate = (payload, email) =>
     Email: systems@eea.org.sz <br>
     Tell: +268 2404 6960/7893 <br>
     Cell: +268 7854 6907 or 7806 1658 <br>
+    <br><br><br>
+    <p style="color:red;"> *This is system-generated mail. We request you not reply on this email.</p>
     </body>
     </html>`
 
