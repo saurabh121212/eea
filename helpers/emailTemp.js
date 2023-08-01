@@ -26,7 +26,7 @@ const RTRRejectedEmailTemplate = (payload) =>
     Tell: +268 2404 6960/7893 <br>
     Cell: +268 7854 6907 or 7806 1658 <br>
     <br><br><br>
-    <p style="color:red;"> *This is system-generated mail. We request you not reply on this email.</p>
+    <p style="color:red;"> *This is a system generated message, please do not reply to this email.</p>
     </body>
     </html>`
 
@@ -59,7 +59,7 @@ const RTRApprovedEmailTemplate = (payload) =>
     Tell: +268 2404 6960/7893 <br>
     Cell: +268 7854 6907 or 7806 1658 <br>
     <br><br><br>
-    <p style="color:red;"> *This is system-generated mail. We request you not reply on this email.</p>
+    <p style="color:red;"> *This is a system generated message, please do not reply to this email.</p>
     </body>
     </html>`
 
@@ -94,7 +94,7 @@ const ragistrationEmail = (payload, email) =>
     Tell: +268 2404 6960/7893 <br>
     Cell: +268 7854 6907 or 7806 1658 <br>
     <br><br><br>
-    <p style="color:red;"> *This is system-generated mail. We request you not reply on this email.</p>
+    <p style="color:red;"> *This is a system generated message, please do not reply to this email.</p>
     </body>
     </html>`
 
@@ -123,7 +123,7 @@ const userApprovedEmailTemplate = (payload, email) =>
     Tell: +268 2404 6960/7893 <br>
     Cell: +268 7854 6907 or 7806 1658 <br>
     <br><br><br>
-    <p style="color:red;"> *This is system-generated mail. We request you not reply on this email.</p>
+    <p style="color:red;"> *This is a system generated message, please do not reply to this email.</p>
     </body>
     </html>`
 
@@ -152,7 +152,7 @@ const userRejectedEmailTemplate = (payload, email) =>
     Tell: +268 2404 6960/7893 <br>
     Cell: +268 7854 6907 or 7806 1658 <br>
     <br><br><br>
-    <p style="color:red;"> *This is system-generated mail. We request you not reply on this email.</p>
+    <p style="color:red;"> *This is a system generated message, please do not reply to this email.</p>
     </body>
     </html>`
 
@@ -169,7 +169,7 @@ const userRagistrationRequestTemplate = (payload) =>
     <b>Dear EEA Admin,</b> <br>
     <p>A user has submitted a request for registration. Please log into the ‘Plastic Return’ filing system to review this request.</p> 
     <br>
-    <b>Note: </b>This is a system-generated e-mail. Please do not reply.<br>
+    <b>Note: </b>This is a system generated message, please do not reply to this email.<br>
     </body>
     </html>`
 
@@ -186,7 +186,7 @@ const rTRFillByUserTemplate = (payload) =>
 <b>Dear EEA Admin,</b> <br>
 <p>A registered business has submitted their monthly plastic return. Please log into the ‘Plastic Return’ filing system to process this return.</p> 
 <br>
-<b>Note: </b>This is a system-generated e-mail. Please do not reply.<br>
+<b>Note: </b>This is a system generated message, please do not reply to this email.<br>
 </body>
 </html>`
     
